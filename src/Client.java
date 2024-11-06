@@ -158,10 +158,10 @@ public class Client extends JFrame{
                         while (true) {
                             // List<Task> receivedTask = (List<Task>) receiver.readObject();
                             Response receivedResponse= (Response) receiver.readObject();
-                            this.LogsModel.addElement(receivedResponse.getLogs());
+                            this.LogsModel.addElement(receivedResponse.getLog());
                             // System.out.println(receivedResponse.getLogs());
-                            System.out.println(receivedResponse.getResponseTask());
-                            updateTask(receivedResponse.getResponseTask());
+                            System.out.println(receivedResponse.getResponseTasks());
+                            updateTask(receivedResponse.getResponseTasks());
                         }
                     } catch (Exception e) {
                         // e.printStackTrace();
@@ -201,7 +201,7 @@ public class Client extends JFrame{
     }
     void AddTask(){
         Task newTask = new Task();
-        newTask.TaskName = JOptionPane.showInputDialog("Decribe the Task");
+        newTask.taskName = JOptionPane.showInputDialog("Decribe the Task");
         newTask.NamaMahasiswa = ClientName;
         Request newRequest = new Request();
         newRequest.groupName = this.GroupName;
